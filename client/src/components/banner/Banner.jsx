@@ -1,9 +1,10 @@
 
 import { styled, Box, Typography } from '@mui/material';
+import  pic from "../../assets/bgpic.png";
 
 const Image = styled(Box)`
     width: 100%;
-    background: url(https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg) center/55% repeat-x #000;
+    background: url(${pic}) center/49% ;
     height: 50vh;
     display: flex;
     flex-direction: column;
@@ -26,8 +27,8 @@ const Banner = () => {
     
     return (
         <Image>
-            <Heading>BLOG</Heading>
-            <SubHeading>Code for Interview</SubHeading>
+            <Heading></Heading>
+            <SubHeading></SubHeading>
         </Image>
     )
 }

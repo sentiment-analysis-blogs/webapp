@@ -11,7 +11,7 @@ const StyledTable = styled(Table)`
 const StyledButton = styled(Button)`
     margin: 20px;
     width: 85%;
-    background: #6495ED;
+    background: #000;
     color: #fff;
     text-decoration: none;
 `;
@@ -19,6 +19,7 @@ const StyledButton = styled(Button)`
 const StyledLink = styled(Link)`
     text-decoration: none;
     color: inherit;
+   
 `;
 
 const Categories = () => {

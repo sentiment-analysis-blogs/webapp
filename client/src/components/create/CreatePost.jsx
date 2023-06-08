@@ -6,6 +6,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 
 import { API } from '../../service/api';
 import { DataContext } from '../../context/DataProvider';
+import pic from "../../assets/createe.png"
 
 const Container = styled(Box)(({ theme }) => ({
     margin: '50px 100px',

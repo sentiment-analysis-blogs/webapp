@@ -32,6 +32,7 @@ const Header = () => {
                 <Link to='/about'>ABOUT</Link>
                 <Link to='/contact'>CONTACT</Link>
                 <Link to='/account'>LOGOUT</Link>
+                <Link to='/trending'>TRENDING</Link>
             </Container>
         </Component>
     )
