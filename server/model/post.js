@@ -24,6 +24,10 @@ const PostSchema = mongoose.Schema({
     },
     createdDate: {
         type: Date
+    },
+    sentiment :{
+        type:String,
+      
     }
 });
 

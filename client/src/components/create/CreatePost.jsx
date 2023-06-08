@@ -49,7 +49,8 @@ const initialPost = {
     picture: '',
     username: '',
     categories: '',
-    createdDate: new Date()
+    createdDate: new Date(),
+    sentiment : ''
 }
 
 const CreatePost = () => {
@@ -60,7 +61,7 @@ const CreatePost = () => {
     const [file, setFile] = useState('');
     const { account } = useContext(DataContext);
 
-    const url = post.picture ? post.picture : 'https://images.unsplash.com/photo-1543128639-4cb7e6eeef1b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGFwdG9wJTIwc2V0dXB8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80';
+    const url = post.picture ? post.picture : 'https://media.licdn.com/dms/image/C4E12AQH34GePG5K-wA/article-cover_image-shrink_600_2000/0/1611776502606?e=2147483647&v=beta&t=J_ZazZWkIAMz3LXar2N5hqPoIfr1WV9wH7P8A1A2M-c';
     
     useEffect(() => {
         const getImage = async () => { 
@@ -76,6 +77,7 @@ const CreatePost = () => {
         getImage();
         post.categories = location.search?.split('=')[1] || 'All';
         post.username = account.username;
+        post.sentiment="nn"     //yahan daalna hai
     }, [file])
 
     const savePost = async () => {
