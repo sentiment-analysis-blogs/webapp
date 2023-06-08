@@ -37,6 +37,18 @@ const Details = styled(Typography)`
     word-break: break-word;
 `;
 
+const Component=styled(Box)`
+
+border: 1px solid #d3cede;
+margin-top:23px;
+
+`;
+
+const SentText=styled(Typography)`
+font-size:12px;
+
+`
+
 const Post = ({ post }) => {
     const url = post.picture ? post.picture : 'https://cdn2.hubspot.net/hub/53/file-23115630-jpg/blog/images/blogging_image.jpg';
     
@@ -52,9 +64,9 @@ const Post = ({ post }) => {
             <Text>Author: {post.username}</Text>
             <Details>{addEllipsis(post.description, 100)}</Details>
 
-            <Box>
-                <Typography>Sentiment : {post.sentiment}</Typography>
-            </Box>
+            <Component>
+                <SentText>Sentiment : {post.sentiment}</SentText>
+            </Component>
         </Container>
     )
 }
