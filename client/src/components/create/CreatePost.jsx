@@ -6,6 +6,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 
 import { API } from '../../service/api';
 import { DataContext } from '../../context/DataProvider';
+// import { analyze_sentiment } from "../../service/senti-api";
 import pic from "../../assets/createe.png"
 
 const Container = styled(Box)(({ theme }) => ({
@@ -77,10 +78,65 @@ const CreatePost = () => {
         getImage();
         post.categories = location.search?.split('=')[1] || 'All';
         post.username = account.username;
-        post.sentiment="nn"     //yahan daalna hai
+       
     }, [file])
 
+
+
+    // const API_URL = 'http://localhost:5000';
+
+
+    // const analyze_sentiment = async(text) => {
+    //     try{
+    //         await fetch(`${API_URL}/api/analyze/${text}`,{
+    //             method:'GET',
+    //             mode: 'cors',
+    //             headers: {
+    //             'Access-Control-Allow-Origin':'*'
+    //             }
+    //         })
+    //         .then((response)=> response.json())
+    //         .then((data)=>{
+    //             console.log(data);
+    //             return data;
+    //         })
+    //     }catch(err){
+    //         console.log("error",err);
+    //     }
+    //   }
+
+
     const savePost = async () => {
+        //yahan daalna hai
+       
+        
+      var SENT;
+        const API_URL = 'http://localhost:5000';
+        var tt = post.description;
+
+        const analyze_sentiment = async(text) => {
+            try{
+               const response = await fetch(`${API_URL}/api/analyze/${text}`,{
+                    method:'GET',
+                    mode: 'cors',
+                    headers: {
+                    'Access-Control-Allow-Origin':'*'
+                    }
+                })
+                const data = await response.json();
+                const sentiment = data["Sentiment"];
+                return sentiment;
+            }catch(err){
+                console.log("error",err);
+            }
+        }
+    
+        var sen = await analyze_sentiment(tt);
+        
+        post.sentiment=sen;    //yahan daalna 
+        // console.log(response);
+        
+
         await API.createPost(post);
         navigate('/');
     }
